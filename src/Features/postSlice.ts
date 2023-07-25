@@ -1,8 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
+// const initialState = {
+//   value: { content: "", imageUrl: "" },
+// };
 
 const postSlice = createSlice({
   name: "post",
-  initialState: { value: { content: "", imageUrl: "" } },
+  initialState: { value: {} },
   reducers: {
     Addpost: (state, action) => {
       state.value = action.payload;

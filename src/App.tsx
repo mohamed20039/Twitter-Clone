@@ -7,7 +7,6 @@ import Home from "./Pages/Home";
 import Post from "./Components/Posts/Post";
 
 function App() {
-  const [count, setCount] = useState(0);
 
   return (
     <div className="font-poppins">

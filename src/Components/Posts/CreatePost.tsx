@@ -7,7 +7,7 @@ import { BsEmojiSmile } from "react-icons/bs";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { Addpost } from "../../Features/postSlice";
+import postSlice, { Addpost } from "../../Features/postSlice";
 const CreatePost = () => {
   const user = useSelector((state) => state.user.value);
   const fileInputRef = useRef([]);
@@ -18,6 +18,17 @@ const CreatePost = () => {
   // console.log(postImage);
 
   const dispatch = useDispatch();
+
+  const handleTweet = () => {
+    if (postContent) {
+      dispatch(
+        Addpost({ content: postContent, imageUrl: postImage, id: Date.now() })
+      );
+    }
+    setPostContent("");
+  };
+
+  // const post = useSelector((state) => state.post.value);
 
   return (
     <div>
@@ -33,6 +44,7 @@ const CreatePost = () => {
           placeholder="What's happening?!"
           className="outline-none"
           onChange={(e) => setPostContent(e.target.value)}
+          value={postContent}
         />
       </div>
       <div className="mt-6 flex items-center justify-between">
@@ -54,9 +66,7 @@ const CreatePost = () => {
         </div>
         <button
           className="bg-[#1197f0] flex items-center px-6 py-2 text-white rounded-full "
-          onClick={() =>
-            dispatch(Addpost({ content: postContent, imageUrl: postImage }))
-          }
+          onClick={() => handleTweet()}
         >
           TWEET
         </button>

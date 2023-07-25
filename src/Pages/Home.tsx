@@ -3,6 +3,7 @@ import SideBar from "../Components/Home/SideBar";
 import Post from "../Components/Posts/Post";
 import Trend from "../Components/Trends/Trend";
 import CreatePost from "../Components/Posts/CreatePost";
+import Posts from "../Components/Posts/Posts";
 
 const Home = () => {
   return (
@@ -10,9 +11,11 @@ const Home = () => {
       <SideBar />
       <div>
         <CreatePost />
-        <Post />
+        {/* <Post content="" imageUrl={""} /> */}
+        <Posts />
       </div>
       <Trend />
+      {/* <Posts /> */}
     </div>
   );
 };
